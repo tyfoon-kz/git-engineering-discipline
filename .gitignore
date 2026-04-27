@@ -4,3 +4,6 @@ vendor/
 node_modules/
 .env
 .env.*
+.phpunit.result.cache
+storage/
+bootstrap/cache/
