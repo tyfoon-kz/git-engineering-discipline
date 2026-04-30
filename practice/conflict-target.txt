@@ -1,1 +1,1 @@
-Checkout message: validate cart total and stock before payment.
+Checkout message: validate cart total, stock, and coupon before payment.
