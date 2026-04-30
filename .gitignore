@@ -1,5 +1,7 @@
 .idea/
 .DS_Store
+*.log
+*.tmp
 vendor/
 node_modules/
 .env
