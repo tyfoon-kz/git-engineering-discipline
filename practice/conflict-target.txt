@@ -1,0 +1,1 @@
+Checkout message: validate cart total before payment.
