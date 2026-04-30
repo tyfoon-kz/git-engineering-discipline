@@ -3,4 +3,11 @@
 vendor/
 node_modules/
 .env
-.env.*
+.env.local
+.env.*.local
+*.log
+coverage/
+dist/
+build/
+tmp/
+*.tmp
