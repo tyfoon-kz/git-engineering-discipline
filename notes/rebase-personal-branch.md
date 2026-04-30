@@ -1,26 +1,33 @@
 # Rebase личной ветки
 
+## Что было сделано руками
+
+Я создал две тренировочные ветки от одной исходной точки `05f504b`.
+
+`practice/rebase-base` получила commit `20487bb` с файлом `practice/rebase-base.txt`. `practice/rebase-topic` получила commit `7f12855` с файлом `practice/rebase-topic.txt`. После этого я выполнил rebase topic branch поверх base branch. Topic commit получил новый hash `e87bf34`, потому что его parent изменился.
+
 ## До rebase
 
-Feature branch создана от старой базы, а `main` ушел вперед:
+До rebase две ветки расходились от одного commit:
 
 ```text
-A -- B -- E  main
-      \
-       C -- D  feature/task
+* 7f12855 practice/rebase-topic
+| * 20487bb practice/rebase-base
+|/
+* 05f504b homework branch
 ```
 
 ## После rebase
 
-Commits feature branch применены заново поверх свежей базы:
+После rebase topic commit применен заново поверх `practice/rebase-base`:
 
 ```text
-A -- B -- E  main
-           \
-            C' -- D'  feature/task
+* e87bf34 practice/rebase-topic
+* 20487bb practice/rebase-base
+* 05f504b homework branch
 ```
 
-`C'` и `D'` являются новыми commits. Их смысл похож на старые `C` и `D`, но hashes другие, потому что изменился parent commit.
+`e87bf34` является новым commit. Его смысл похож на старый `7f12855`, но hash другой, потому что изменился parent commit. Это и есть replay commits, а не простое перемещение старого commit.
 
 ## Safe zone
 
@@ -52,3 +59,7 @@ git status --short
 ```
 
 Rebase меняет базу работы, поэтому локальные проверки обязательны перед review.
+
+## Corporate note
+
+В этой домашке rebase был безопасным, потому что работал на тренировочной личной ветке. Так нельзя обращаться с protected `main`, `develop`, `release/*` или веткой, на которую уже опирается reviewer или другой разработчик. Published history является командным контрактом.
